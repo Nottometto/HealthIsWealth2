@@ -4,6 +4,7 @@ using HealthIsWealth.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthIsWealth.Migrations
 {
     [DbContext(typeof(HealthIsWealthContext))]
-    partial class HealthIsWealthContextModelSnapshot : ModelSnapshot
+    [Migration("20260105080830_amendVenueDB")]
+    partial class amendVenueDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,11 +44,6 @@ namespace HealthIsWealth.Migrations
 
                     b.HasKey("BookingID");
 
-                    b.HasIndex("TimeslotID")
-                        .IsUnique();
-
-                    b.HasIndex("UserID");
-
                     b.ToTable("Booking");
                 });
 
@@ -71,8 +69,6 @@ namespace HealthIsWealth.Migrations
 
                     b.HasKey("FacilityID");
 
-                    b.HasIndex("VenueID");
-
                     b.ToTable("Facility");
                 });
 
@@ -94,10 +90,6 @@ namespace HealthIsWealth.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("FacilitySportID");
-
-                    b.HasIndex("FacilityID");
-
-                    b.HasIndex("SportID");
 
                     b.ToTable("FacilitySport");
                 });
@@ -123,9 +115,6 @@ namespace HealthIsWealth.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ReviewID");
-
-                    b.HasIndex("BookingID")
-                        .IsUnique();
 
                     b.ToTable("Review");
                 });
@@ -170,8 +159,6 @@ namespace HealthIsWealth.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("TimeslotID");
-
-                    b.HasIndex("FacilityID");
 
                     b.ToTable("Timeslot");
                 });
@@ -227,102 +214,6 @@ namespace HealthIsWealth.Migrations
                     b.HasKey("VenueID");
 
                     b.ToTable("Venue");
-                });
-
-            modelBuilder.Entity("HealthIsWealth.DatabaseTables.Booking", b =>
-                {
-                    b.HasOne("HealthIsWealth.DatabaseTables.Timeslot", "Timeslot")
-                        .WithOne("Booking")
-                        .HasForeignKey("HealthIsWealth.DatabaseTables.Booking", "TimeslotID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HealthIsWealth.DatabaseTables.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Timeslot");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("HealthIsWealth.DatabaseTables.Facility", b =>
-                {
-                    b.HasOne("HealthIsWealth.DatabaseTables.Venue", "Venue")
-                        .WithMany("Facilities")
-                        .HasForeignKey("VenueID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Venue");
-                });
-
-            modelBuilder.Entity("HealthIsWealth.DatabaseTables.FacilitySport", b =>
-                {
-                    b.HasOne("HealthIsWealth.DatabaseTables.Facility", "Facility")
-                        .WithMany("FacilitySports")
-                        .HasForeignKey("FacilityID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HealthIsWealth.DatabaseTables.Sport", "Sport")
-                        .WithMany("FacilitySports")
-                        .HasForeignKey("SportID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Facility");
-
-                    b.Navigation("Sport");
-                });
-
-            modelBuilder.Entity("HealthIsWealth.DatabaseTables.Review", b =>
-                {
-                    b.HasOne("HealthIsWealth.DatabaseTables.Booking", null)
-                        .WithOne("Review")
-                        .HasForeignKey("HealthIsWealth.DatabaseTables.Review", "BookingID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("HealthIsWealth.DatabaseTables.Timeslot", b =>
-                {
-                    b.HasOne("HealthIsWealth.DatabaseTables.Facility", "Facility")
-                        .WithMany("Timeslots")
-                        .HasForeignKey("FacilityID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Facility");
-                });
-
-            modelBuilder.Entity("HealthIsWealth.DatabaseTables.Booking", b =>
-                {
-                    b.Navigation("Review");
-                });
-
-            modelBuilder.Entity("HealthIsWealth.DatabaseTables.Facility", b =>
-                {
-                    b.Navigation("FacilitySports");
-
-                    b.Navigation("Timeslots");
-                });
-
-            modelBuilder.Entity("HealthIsWealth.DatabaseTables.Sport", b =>
-                {
-                    b.Navigation("FacilitySports");
-                });
-
-            modelBuilder.Entity("HealthIsWealth.DatabaseTables.Timeslot", b =>
-                {
-                    b.Navigation("Booking");
-                });
-
-            modelBuilder.Entity("HealthIsWealth.DatabaseTables.Venue", b =>
-                {
-                    b.Navigation("Facilities");
                 });
 #pragma warning restore 612, 618
         }
