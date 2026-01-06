@@ -1,10 +1,7 @@
-using HealthIsWealth.Components;
+﻿using HealthIsWealth.Components;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using HealthIsWealth.Data;
-using HealthIsWealth.Components.Account;
-using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContextFactory<HealthIsWealthContext>(options =>

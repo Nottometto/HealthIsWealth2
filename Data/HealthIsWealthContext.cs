@@ -1,28 +1,26 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using HealthIsWealth.Data;
-using HealthIsWealth.Domain;
-using HealthIsWealth.Configurations.Entities;
+using HealthIsWealth.DatabaseTables;
 
 namespace HealthIsWealth.Data
 {
-    public class HealthIsWealthContext(DbContextOptions<HealthIsWealthContext> options) : IdentityDbContext<HealthIsWealthUser>(options)
-    {        
-        public DbSet<Facility> Facility { get; set; } = default!;
-        public DbSet<FacilitySport> FacilitySport { get; set; } = default!; 
-        public DbSet<Sport> Sport { get; set; } = default!;
-        public DbSet<Timeslot> Timeslot { get; set; } = default!;
-        public DbSet<Venue> Venue { get; set; } = default!;
-        public DbSet<Booking> Booking { get; set; } = default!;
-        public DbSet<Review> Review { get; set; } = default!;
-
-        protected override void OnModelCreating(ModelBuilder builder)
+    public class HealthIsWealthContext : DbContext
+    {
+        public HealthIsWealthContext (DbContextOptions<HealthIsWealthContext> options)
+            : base(options)
         {
-            base.OnModelCreating(builder);
+        }
 
-            builder.ApplyConfiguration(new BookingSeed());
-            builder.ApplyConfiguration(new ReviewSeed());
-            builder.ApplyConfiguration(new UserSeed());
-        }   
+        public DbSet<HealthIsWealth.DatabaseTables.Venue> Venue { get; set; } = default!;
+        public DbSet<HealthIsWealth.DatabaseTables.User> User { get; set; } = default!;
+        public DbSet<HealthIsWealth.DatabaseTables.Timeslot> Timeslot { get; set; } = default!;
+        public DbSet<HealthIsWealth.DatabaseTables.Sport> Sport { get; set; } = default!;
+        public DbSet<HealthIsWealth.DatabaseTables.Review> Review { get; set; } = default!;
+        public DbSet<HealthIsWealth.DatabaseTables.FacilitySport> FacilitySport { get; set; } = default!;
+        public DbSet<HealthIsWealth.DatabaseTables.Facility> Facility { get; set; } = default!;
+        public DbSet<HealthIsWealth.DatabaseTables.Booking> Booking { get; set; } = default!;
     }
 }
