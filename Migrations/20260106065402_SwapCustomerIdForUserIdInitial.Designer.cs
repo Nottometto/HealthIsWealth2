@@ -4,6 +4,7 @@ using HealthIsWealth.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthIsWealth.Migrations
 {
     [DbContext(typeof(HealthIsWealthContext))]
-    partial class HealthIsWealthContextModelSnapshot : ModelSnapshot
+    [Migration("20260106065402_SwapCustomerIdForUserIdInitial")]
+    partial class SwapCustomerIdForUserIdInitial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,26 +94,6 @@ namespace HealthIsWealth.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "a51e1dfe-cff3-443e-9955-41923b1106d8",
-                            Email = "test1@localhost.com",
-                            EmailConfirmed = true,
-                            FirstName = "test",
-                            LastName = "1",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "TEST1@LOCALHOST.COM",
-                            NormalizedUserName = "TEST1@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEC0yxmTmnRKHBHztcIO61H1jY4yOR1q7QIhMmES61qJV53ugAvLWA7tX7l3Q9wPrxQ==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "86aa2e4d-18f7-42b9-832b-a8055e96516a",
-                            TwoFactorEnabled = false,
-                            UserName = "test1@localhost.com"
-                        });
                 });
 
             modelBuilder.Entity("HealthIsWealth.Domain.Booking", b =>
@@ -130,26 +113,6 @@ namespace HealthIsWealth.Migrations
                     b.HasKey("BookingId");
 
                     b.ToTable("Booking");
-
-                    b.HasData(
-                        new
-                        {
-                            BookingId = 1,
-                            TimeslotId = 1,
-                            UserId = "6d3d2829-89fa-4095-b0f9-0ef8e802fd69"
-                        },
-                        new
-                        {
-                            BookingId = 2,
-                            TimeslotId = 2,
-                            UserId = "6d3d2829-89fa-4095-b0f9-0ef8e802fd69"
-                        },
-                        new
-                        {
-                            BookingId = 3,
-                            TimeslotId = 3,
-                            UserId = "3781efa7-66dc-47f0-860f-e506d04102e4"
-                        });
                 });
 
             modelBuilder.Entity("HealthIsWealth.Domain.Facility", b =>
@@ -207,9 +170,6 @@ namespace HealthIsWealth.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewId"));
 
-                    b.Property<int>("BookingId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Feedback")
                         .HasColumnType("nvarchar(max)");
 
@@ -222,32 +182,6 @@ namespace HealthIsWealth.Migrations
                     b.HasKey("ReviewId");
 
                     b.ToTable("Review");
-
-                    b.HasData(
-                        new
-                        {
-                            ReviewId = 1,
-                            BookingId = 1,
-                            Feedback = "Good facility venue has a lot of ammenities",
-                            Rating = 4.5f,
-                            UserId = "6d3d2829-89fa-4095-b0f9-0ef8e802fd69"
-                        },
-                        new
-                        {
-                            ReviewId = 2,
-                            BookingId = 2,
-                            Feedback = "Dirty equipments but gym has alot of machines",
-                            Rating = 4f,
-                            UserId = "6d3d2829-89fa-4095-b0f9-0ef8e802fd69"
-                        },
-                        new
-                        {
-                            ReviewId = 3,
-                            BookingId = 3,
-                            Feedback = "Best volleyball court ever",
-                            Rating = 5f,
-                            UserId = "3781efa7-66dc-47f0-860f-e506d04102e4"
-                        });
                 });
 
             modelBuilder.Entity("HealthIsWealth.Domain.Sport", b =>

@@ -17,8 +17,8 @@
 <QuickGrid Class="table" Items="context.Review">
     <PropertyColumn Property="review => review.Rating" />
     <PropertyColumn Property="review => review.Feedback" />
-    <PropertyColumn Property="review => review.CustomerId" />
     <PropertyColumn Property="review => review.BookingId" />
+    <PropertyColumn Property="review => review.UserId" />
 
     <TemplateColumn Context="review">
         <a href="@($"reviews/edit?reviewid={review.ReviewId}")">Edit</a> |

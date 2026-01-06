@@ -16,9 +16,9 @@
             <DataAnnotationsValidator />
             <ValidationSummary class="text-danger" role="alert"/>
             <div class="mb-3">
-                <label for="customerid" class="form-label">CustomerId:</label> 
-                <InputNumber id="customerid" @bind-Value="Booking.CustomerId" class="form-control" /> 
-                <ValidationMessage For="() => Booking.CustomerId" class="text-danger" /> 
+                <label for="userid" class="form-label">UserId:</label> 
+                <InputText id="userid" @bind-Value="Booking.UserId" class="form-control" /> 
+                <ValidationMessage For="() => Booking.UserId" class="text-danger" /> 
             </div>        
             <div class="mb-3">
                 <label for="timeslotid" class="form-label">TimeslotId:</label> 

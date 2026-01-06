@@ -26,14 +26,14 @@
                 <ValidationMessage For="() => Review.Feedback" class="text-danger" /> 
             </div>        
             <div class="mb-3">
-                <label for="customerid" class="form-label">CustomerId:</label> 
-                <InputNumber id="customerid" @bind-Value="Review.CustomerId" class="form-control" /> 
-                <ValidationMessage For="() => Review.CustomerId" class="text-danger" /> 
-            </div>        
-            <div class="mb-3">
                 <label for="bookingid" class="form-label">BookingId:</label> 
                 <InputNumber id="bookingid" @bind-Value="Review.BookingId" class="form-control" /> 
                 <ValidationMessage For="() => Review.BookingId" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="userid" class="form-label">UserId:</label> 
+                <InputText id="userid" @bind-Value="Review.UserId" class="form-control" /> 
+                <ValidationMessage For="() => Review.UserId" class="text-danger" /> 
             </div>        
             <button type="submit" class="btn btn-primary">Create</button>
         </EditForm>
