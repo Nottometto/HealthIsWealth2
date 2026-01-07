@@ -1,10 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-
-namespace HealthIsWealth.Domain
+﻿namespace HealthIsWealth.Domain
 {
     public class Sport
     {
-        public int SportID { get; set; }
+        public int SportId { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
 

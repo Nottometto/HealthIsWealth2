@@ -1,14 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-
-namespace HealthIsWealth.Domain
+﻿namespace HealthIsWealth.Domain
 {
     public class Facility
     {
-        public int FacilityID { get; set; }
+        public int FacilityId { get; set; }
         public string? Name { get; set; }
         public string? Location { get; set; }
         public string? ImageSource { get; set; }
-        public int VenueID { get; set; }
+        public int VenueId { get; set; }
         public float Price { get; set; }
 
         //Navigation Properties
