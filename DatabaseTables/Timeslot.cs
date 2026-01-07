@@ -1,4 +1,6 @@
-﻿namespace HealthIsWealth.DatabaseTables
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
+namespace HealthIsWealth.DatabaseTables
 {
     public class Timeslot
     {
@@ -7,5 +9,11 @@
         public DateTime EndDT { get; set; }
         public int FacilityID { get; set; }
         public int VenueID { get; set; }
+
+        //Navigation Properties
+
+        public Facility Facility { get; set; }
+
+        public Booking? Booking { get; set; }
     }
 }

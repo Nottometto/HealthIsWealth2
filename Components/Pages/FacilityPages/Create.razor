@@ -30,6 +30,11 @@
                 <InputNumber id="venueid" @bind-Value="Facility.VenueID" class="form-control" /> 
                 <ValidationMessage For="() => Facility.VenueID" class="text-danger" /> 
             </div>        
+            <div class="mb-3">
+                <label for="price" class="form-label">Price:</label> 
+                <InputNumber id="price" @bind-Value="Facility.Price" class="form-control" /> 
+                <ValidationMessage For="() => Facility.Price" class="text-danger" /> 
+            </div>        
             <button type="submit" class="btn btn-primary">Create</button>
         </EditForm>
     </div>
