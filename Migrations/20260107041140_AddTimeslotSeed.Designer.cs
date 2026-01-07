@@ -4,6 +4,7 @@ using HealthIsWealth.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthIsWealth.Migrations
 {
     [DbContext(typeof(HealthIsWealthContext))]
-    partial class HealthIsWealthContextModelSnapshot : ModelSnapshot
+    [Migration("20260107041140_AddTimeslotSeed")]
+    partial class AddTimeslotSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,7 +100,7 @@ namespace HealthIsWealth.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c0acaa29-2e9a-42bb-bac6-4fc8b1c941f0",
+                            ConcurrencyStamp = "78ac4baa-22fe-47e9-beeb-de3ffa5d8195",
                             Email = "test1@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "test",
@@ -105,9 +108,9 @@ namespace HealthIsWealth.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST1@GMAIL.COM",
                             NormalizedUserName = "TEST1@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJCWEmRq5a47/aNoEH+ZsHyFRbWhyKJTn/byC+Pi0jfHDv5y55vT4YYD2aGLNlwHcw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOQcbBTM/s/p9wNqjTQpCqvAAF7LaJK+ggZsGOzRBOBZE86DYiagvijZKPxGAxep4Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "02b3e498-29ed-42d3-86c6-c785fd060d8c",
+                            SecurityStamp = "784e96b4-a198-4822-810d-64ac60bd9c6f",
                             TwoFactorEnabled = false,
                             UserName = "test1@gmail.com"
                         },
@@ -115,7 +118,7 @@ namespace HealthIsWealth.Migrations
                         {
                             Id = "6d3d2829-89fa-4095-b0f9-0ef8e802fd69",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "298790ae-27ed-4d73-baa0-957c2a3df397",
+                            ConcurrencyStamp = "dbbf6cfd-2861-45e8-a76a-eb543fabe175",
                             Email = "test2@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "test",
@@ -123,9 +126,9 @@ namespace HealthIsWealth.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST2@GMAIL.COM",
                             NormalizedUserName = "TEST2@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOKno4P9CIDPsv74woneXawbRNDsPAxXRSsQBvG14H1+BimDXjuF3OiBzKn7u2A0YQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEH+W4vgHMvnT2WP17k0wXFe5JoDHiqIxOQ9NsGrXEcTmadRVPep6w88ufJkB/7FArg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6a649916-fd34-4241-89e1-c99850371db6",
+                            SecurityStamp = "02118b41-6258-41af-bbb3-cf96ecd750b4",
                             TwoFactorEnabled = false,
                             UserName = "test2@gmail.com"
                         });
@@ -199,16 +202,6 @@ namespace HealthIsWealth.Migrations
                     b.HasIndex("VenueId");
 
                     b.ToTable("Facility");
-
-                    b.HasData(
-                        new
-                        {
-                            FacilityId = 1,
-                            Location = "Hall A",
-                            Name = "Badminton Court",
-                            Price = 0f,
-                            VenueId = 1
-                        });
                 });
 
             modelBuilder.Entity("HealthIsWealth.Domain.FacilitySport", b =>
@@ -324,13 +317,13 @@ namespace HealthIsWealth.Migrations
                     b.Property<DateTime>("EndDT")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("FacilityId")
+                    b.Property<int?>("FacilityId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("StartDT")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("VenueId")
+                    b.Property<int?>("VenueId")
                         .HasColumnType("int");
 
                     b.HasKey("TimeslotId");
@@ -346,25 +339,13 @@ namespace HealthIsWealth.Migrations
                         {
                             TimeslotId = 1,
                             EndDT = new DateTime(2024, 7, 1, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            FacilityId = 1,
-                            StartDT = new DateTime(2024, 7, 1, 9, 0, 0, 0, DateTimeKind.Unspecified),
-                            VenueId = 1
+                            StartDT = new DateTime(2024, 7, 1, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             TimeslotId = 2,
                             EndDT = new DateTime(2024, 7, 1, 11, 0, 0, 0, DateTimeKind.Unspecified),
-                            FacilityId = 1,
-                            StartDT = new DateTime(2024, 7, 1, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            VenueId = 1
-                        },
-                        new
-                        {
-                            TimeslotId = 3,
-                            EndDT = new DateTime(2024, 7, 1, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            FacilityId = 1,
-                            StartDT = new DateTime(2024, 7, 1, 11, 0, 0, 0, DateTimeKind.Unspecified),
-                            VenueId = 1
+                            StartDT = new DateTime(2024, 7, 1, 10, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -388,15 +369,6 @@ namespace HealthIsWealth.Migrations
                     b.HasKey("VenueId");
 
                     b.ToTable("Venue");
-
-                    b.HasData(
-                        new
-                        {
-                            VenueId = 1,
-                            Address = "Sambawang",
-                            PostalCode = "123456",
-                            UnitNumber = "01-1234"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -608,15 +580,11 @@ namespace HealthIsWealth.Migrations
                 {
                     b.HasOne("HealthIsWealth.Domain.Facility", "Facility")
                         .WithMany()
-                        .HasForeignKey("FacilityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FacilityId");
 
                     b.HasOne("HealthIsWealth.Domain.Venue", "Venue")
                         .WithMany()
-                        .HasForeignKey("VenueId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("VenueId");
 
                     b.Navigation("Facility");
 

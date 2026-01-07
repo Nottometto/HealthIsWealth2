@@ -4,6 +4,7 @@ using HealthIsWealth.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthIsWealth.Migrations
 {
     [DbContext(typeof(HealthIsWealthContext))]
-    partial class HealthIsWealthContextModelSnapshot : ModelSnapshot
+    [Migration("20260107044855_AddFacilitySeed")]
+    partial class AddFacilitySeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,7 +100,7 @@ namespace HealthIsWealth.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c0acaa29-2e9a-42bb-bac6-4fc8b1c941f0",
+                            ConcurrencyStamp = "645d200a-0789-4093-87d9-b1a558fd9880",
                             Email = "test1@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "test",
@@ -105,9 +108,9 @@ namespace HealthIsWealth.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST1@GMAIL.COM",
                             NormalizedUserName = "TEST1@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJCWEmRq5a47/aNoEH+ZsHyFRbWhyKJTn/byC+Pi0jfHDv5y55vT4YYD2aGLNlwHcw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEP5kYcK04JAsw5lxc9ArrVq5RGsGhy91q828y0LNfeKrDc/H4hV0HO2rEdBTP+BtPw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "02b3e498-29ed-42d3-86c6-c785fd060d8c",
+                            SecurityStamp = "7652c6d0-ad79-4285-834c-0ead4c631a22",
                             TwoFactorEnabled = false,
                             UserName = "test1@gmail.com"
                         },
@@ -115,7 +118,7 @@ namespace HealthIsWealth.Migrations
                         {
                             Id = "6d3d2829-89fa-4095-b0f9-0ef8e802fd69",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "298790ae-27ed-4d73-baa0-957c2a3df397",
+                            ConcurrencyStamp = "d234172c-a769-42c6-9e0f-6b5f8e57cedc",
                             Email = "test2@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "test",
@@ -123,9 +126,9 @@ namespace HealthIsWealth.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST2@GMAIL.COM",
                             NormalizedUserName = "TEST2@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOKno4P9CIDPsv74woneXawbRNDsPAxXRSsQBvG14H1+BimDXjuF3OiBzKn7u2A0YQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOdFzzPERIfahh9G7rnR6bKUPVnCOPP6qo39FO+VZw+myh09vyeuIzXNDoxp3QnxwA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6a649916-fd34-4241-89e1-c99850371db6",
+                            SecurityStamp = "f89c69ce-40f7-4a6c-8275-341538083b7c",
                             TwoFactorEnabled = false,
                             UserName = "test2@gmail.com"
                         });
@@ -356,14 +359,6 @@ namespace HealthIsWealth.Migrations
                             EndDT = new DateTime(2024, 7, 1, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             FacilityId = 1,
                             StartDT = new DateTime(2024, 7, 1, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            VenueId = 1
-                        },
-                        new
-                        {
-                            TimeslotId = 3,
-                            EndDT = new DateTime(2024, 7, 1, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            FacilityId = 1,
-                            StartDT = new DateTime(2024, 7, 1, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             VenueId = 1
                         });
                 });

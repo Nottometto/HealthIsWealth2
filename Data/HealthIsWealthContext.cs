@@ -23,6 +23,10 @@ namespace HealthIsWealth.Data
             builder.ApplyConfiguration(new BookingSeed());
             builder.ApplyConfiguration(new ReviewSeed());
             builder.ApplyConfiguration(new UserSeed());
+            builder.ApplyConfiguration(new TimeslotSeed());
+            builder.ApplyConfiguration(new FacilitySeed());
+            builder.ApplyConfiguration(new VenueSeed());
+
         }
     }
 }
