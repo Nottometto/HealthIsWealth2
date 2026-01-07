@@ -33,13 +33,6 @@ namespace HealthIsWealth.Migrations
                         .HasColumnType("int");
 
 
-                    b.HasKey("BookingId");
-
-                    b.HasIndex("TimeslotID")
-                        .IsUnique();
-
-                    b.HasIndex("UserID");
-
                     b.ToTable("Booking");
 
                     b.HasData(
@@ -77,13 +70,10 @@ namespace HealthIsWealth.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-<<<<<<< HEAD
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
                     b.Property<int>("VenueID")
-=======
->>>>>>> 7ff801764585662ff05d91b23576571a2a780d31
                         .HasColumnType("int");
 
 
@@ -217,7 +207,6 @@ namespace HealthIsWealth.Migrations
 
                         .HasColumnType("nvarchar(max)");
 
-<<<<<<< HEAD
                     b.Property<string>("ImageSource")
                         .HasColumnType("nvarchar(max)");
 
@@ -226,10 +215,6 @@ namespace HealthIsWealth.Migrations
 
                     b.Property<string>("UnitNumber")
                         .HasColumnType("nvarchar(max)");
-=======
-
-
->>>>>>> 7ff801764585662ff05d91b23576571a2a780d31
 
 
                 });
