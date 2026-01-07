@@ -1,11 +1,19 @@
-﻿namespace HealthIsWealth.Domain
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
+namespace HealthIsWealth.Domain
 {
     public class Timeslot
     {
-        public int TimeslotId { get; set; }
+        public int TimeslotID { get; set; }
         public DateTime StartDT { get; set; }
         public DateTime EndDT { get; set; }
-        public int FacilityId { get; set; }
-        public int VenueId { get; set; }
+        public int FacilityID { get; set; }
+        public int VenueID { get; set; }
+
+        //Navigation Properties
+
+        public Facility Facility { get; set; }
+
+        public Booking? Booking { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using HealthIsWealth.DatabaseTables;
+﻿using HealthIsWealth.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

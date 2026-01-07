@@ -1,23 +1,28 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using HealthIsWealth.Data;
 using HealthIsWealth.Domain;
 using HealthIsWealth.Configurations.Entities;
 
 namespace HealthIsWealth.Data
 {
-    {        
-        {
+    public class HealthIsWealthContext(DbContextOptions<HealthIsWealthContext> options) : IdentityDbContext<HealthIsWealthUser>(options)
+    {
+        public DbSet<Facility> Facility { get; set; } = default!;
+        public DbSet<FacilitySport> FacilitySport { get; set; } = default!;
+        public DbSet<Sport> Sport { get; set; } = default!;
+        public DbSet<Timeslot> Timeslot { get; set; } = default!;
+        public DbSet<Venue> Venue { get; set; } = default!;
+        public DbSet<Booking> Booking { get; set; } = default!;
+        public DbSet<Review> Review { get; set; } = default!;
 
-<<<<<<< HEAD
-        public DbSet<HealthIsWealth.DatabaseTables.User> User { get; set; } = default!;
-        public DbSet<HealthIsWealth.DatabaseTables.Timeslot> Timeslot { get; set; } = default!;
-        public DbSet<HealthIsWealth.DatabaseTables.Sport> Sport { get; set; } = default!;
-        public DbSet<HealthIsWealth.DatabaseTables.Review> Review { get; set; } = default!;
-        public DbSet<HealthIsWealth.DatabaseTables.FacilitySport> FacilitySport { get; set; } = default!;
-        public DbSet<HealthIsWealth.DatabaseTables.Booking> Booking { get; set; } = default!;
-        public DbSet<HealthIsWealth.DatabaseTables.Venue> Venue { get; set; } = default!;
-        public DbSet<HealthIsWealth.DatabaseTables.Facility> Facility { get; set; } = default!;
-=======
->>>>>>> 7ff801764585662ff05d91b23576571a2a780d31
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.ApplyConfiguration(new BookingSeed());
+            builder.ApplyConfiguration(new ReviewSeed());
+            builder.ApplyConfiguration(new UserSeed());
+        }
     }
 }
