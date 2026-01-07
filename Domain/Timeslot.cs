@@ -7,11 +7,5 @@
         public DateTime EndDT { get; set; }
         public int FacilityId { get; set; }
         public int VenueId { get; set; }
-
-        //Navigation Properties
-
-        public Facility Facility { get; set; }
-
-        public Booking? Booking { get; set; }
     }
 }
